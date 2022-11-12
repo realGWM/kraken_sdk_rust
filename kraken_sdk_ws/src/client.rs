@@ -25,7 +25,7 @@ pub enum TypedMessage {
 /// A WebSocket client for Kraken.
 pub struct Client {
     sender: SplitSink<WebSocketStream<MaybeTlsStream<TcpStream>>, Message>,
-    pub messages: Pin<Box<dyn Stream<Item = Result<TypedMessage>>>>,
+    pub messages: Pin<Box<dyn Stream<Item = Result<TypedMessage>> + Send + Sync>>,
 }
 
 // #TODO extract socket like in the previous impl?
