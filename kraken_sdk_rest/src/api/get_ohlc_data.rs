@@ -3,6 +3,7 @@ use serde::{de::DeserializeOwned, Deserialize};
 use std::collections::HashMap;
 
 /// Time frame interval.
+#[derive(Debug, Clone, Copy)]
 pub enum Interval {
     Min1 = 1,
     Min5 = 5,
